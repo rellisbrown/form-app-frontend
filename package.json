@@ -1,0 +1,24 @@
+{
+  "name": "form-app-frontend",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "lerna": "^7.1.4"
+  },
+  "scripts": {
+    "dev-all": "concurrently \"npm:build-watch-admin\" \"npm:build-watch-user\" \"npm:preview-admin\" \"npm:preview-user\" \"npm:dev-container\" --kill-others",
+    "dev-container": "npx lerna run dev --scope=container",
+    "dev-admin": "npx lerna run dev --scope=admin",
+    "dev-user": "npx lerna run dev --scope=user",
+    "build-watch-admin": "npx lerna run build-watch --scope=admin",
+    "build-watch-user": "npx lerna run build-watch --scope=user",
+    "preview-admin": "npx lerna run preview --scope=admin",
+    "preview-user": "npx lerna run preview --scope=user"
+  },
+  "dependencies": {
+    "@mui/x-date-pickers": "^6.15.0"
+  }
+}
